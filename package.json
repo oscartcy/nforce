@@ -47,5 +47,6 @@
   "license": {
     "type": "MIT",
     "url": "https://raw.github.com/kevinohara80/nforce/master/LICENSE"
-  }
+  },
+  "private": true
 }
