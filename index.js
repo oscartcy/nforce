@@ -41,7 +41,9 @@ var Connection = function(opts) {
     mode:          'multi',
     gzip:          false,
     autoRefresh:   false,
-    onRefresh:     undefined
+    onRefresh:     undefined,
+    authEndpoint:  AUTH_ENDPOINT,
+    testAuthEndpoint:   TEST_AUTH_ENDPOINT
   });
 
   // convert option values
@@ -154,9 +156,9 @@ Connection.prototype.getAuthUri = function(opts) {
     urlOpts.state = opts.state;
   }
   if(self.environment == 'sandbox') {
-    return TEST_AUTH_ENDPOINT + '?' + qs.stringify(urlOpts);
+    return self.testAuthEndpoint + '?' + qs.stringify(urlOpts);
   } else {
-    return AUTH_ENDPOINT + '?' + qs.stringify(urlOpts);
+    return self.authEndpoint + '?' + qs.stringify(urlOpts);
   }
 }
 
